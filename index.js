@@ -6,6 +6,8 @@ app.use(express.json({extended: true}));
 dbConnection();
 const PORT = process.env.PORT || 4000;
 
+app.use('/api/burger', require('./routes/burger'));
+
 app.listen(PORT, ()=>{
     console.log('Corriendo el servidor')
 })
