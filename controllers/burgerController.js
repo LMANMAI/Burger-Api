@@ -1,4 +1,45 @@
+const BurgerModel = require('../models/Burger');
+const { validationResult } = require('express-validator');
 
-exports.insertBurger =(req, res) =>{
- res.status(200).json('desde el controlador,funcion de crear las hamburgesas')
+function verificarErrores(req, res) {
+    //reviso si tengo errores de validacion
+    const errores = validationResult(req);
+    if(!errores.isEmpty()){
+        return res.status(400).json({ errores: errores.array() });
+    }
+}
+exports.insertBurger = async (req, res) => {
+    verificarErrores(req, res);
+ try {
+     let burger = new BurgerModel(req.body);
+     await burger.save();
+     res.status(200).json({burger});
+     
+ } catch (error) {
+     res.status(500).json({msg: 'Ocurrio un problema agregando la hamburgesa'});
+     console.log(error.response);
+ }
+}
+exports.getBurgers = async (req, res) => {
+    verificarErrores(req, res)
+try {
+    let hamburgers = await BurgerModel.find();
+    res.status(200).json({ hamburgers });
+    
+} catch (error) {
+    res.staus(500).json({msg: 'Hubo un problema al traer las hamburgesas'})
+    console.log(error.response);
+}
+}
+exports.getBurger = async (req, res) => {
+    verificarErrores(req, res);
+    try {
+        //console.log(req.params)
+        let hamburger = await BurgerModel.findOne(req.params);
+        res.status(200).json({ hamburger })
+        //console.log(hamburgesa)
+    } catch (error) {
+        res.status(500).json({ msg: 'Hubo un problema al traer la hamburgesa'})
+        console.log(error.response)
+    }
 }
