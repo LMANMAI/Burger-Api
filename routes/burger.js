@@ -12,7 +12,7 @@ router.post(
   burgerController.insertBurger
 );
 //traer hamburgesas
-router.get('/', burgerController.getBurgers);
+router.get('/burgers', burgerController.getBurgers);
 
 //traer hamburgesa
 router.get('/:name', burgerController.getBurger);

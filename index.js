@@ -23,7 +23,7 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Content-Type, Authorization, Content-Length, X-Requested-With, Accept");
     next();
   });
-app.use('/burger', require('./routes/burger'));
+app.use('/', require('./routes/burger'));
 
 app.listen(port, '0.0.0.0' ,()=>{
     console.log(`Corriendo desde el puerto: ${port}`);
