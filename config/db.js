@@ -8,7 +8,7 @@ const dbConnection = async() => {
             useUnifiedTopology: true,
             useFindAndModify: false
         });
-        console.log('Coneccion con exito a la base de datos')
+        console.log('Conexion con exito a la base de datos')
     } catch (error) {
         console.log(error, 'Ocurrio un error conectando a la base de datos');
         process.exit(1)
