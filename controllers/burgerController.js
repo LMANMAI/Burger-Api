@@ -23,8 +23,8 @@ exports.insertBurger = async (req, res) => {
 exports.getBurgers = async (req, res) => {
     verificarErrores(req, res)
 try {
-    let hamburgers = await BurgerModel.find();
-    res.status(200).json({ hamburgers });
+    let burgers = await BurgerModel.find();
+    res.status(200).json({ burgers });
     
 } catch (error) {
     res.staus(500).json({msg: 'Hubo un problema al traer las hamburgesas'})
@@ -35,8 +35,8 @@ exports.getBurger = async (req, res) => {
     verificarErrores(req, res);
     try {
         //console.log(req.params)
-        let hamburger = await BurgerModel.findOne(req.params);
-        res.status(200).json({ hamburger })
+        let burger = await BurgerModel.findOne(req.params);
+        res.status(200).json({ burger })
         //console.log(hamburgesa)
     } catch (error) {
         res.status(500).json({ msg: 'Hubo un problema al traer la hamburgesa'})
