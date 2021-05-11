@@ -5,17 +5,14 @@ const burgerController = require("../controllers/burgerController");
 //Endpoint
 // api/burger
 
-//Insertar una hamburgesa
 router.post(
   "/",
   [check("name", "El Nombre es necesario").not().isEmpty()],
   burgerController.insertBurger
 );
-//traer hamburgesas
-router.get('/burgers', burgerController.getBurgers);
-
-//traer hamburgesa
-router.get('/:name', burgerController.getBurger);
-
+router.get("/", burgerController.getBurgers);
+router.get("/:name", burgerController.getBurger);
+//esto tiene que ir en otra ruta
+router.get("/ingredient/:topping", burgerController.getBurgersByIngredient);
 
 module.exports = router;

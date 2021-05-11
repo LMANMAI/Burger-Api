@@ -1,7 +1,7 @@
 const BurgerModel = require('../models/Burger');
 const { validationResult } = require('express-validator');
 
-function verificarErrores(req, res) {
+function checkError(req, res) {
     //reviso si tengo errores de validacion
     const errores = validationResult(req);
     if(!errores.isEmpty()){
@@ -9,7 +9,7 @@ function verificarErrores(req, res) {
     }
 }
 exports.insertBurger = async (req, res) => {
-    verificarErrores(req, res);
+    checkError(req, res);
  try {
      let burger = new BurgerModel(req.body);
      await burger.save();
@@ -21,7 +21,7 @@ exports.insertBurger = async (req, res) => {
  }
 }
 exports.getBurgers = async (req, res) => {
-    verificarErrores(req, res)
+    checkError(req, res)
 try {
     let burgers = await BurgerModel.find();
     res.status(200).json({ burgers });
@@ -32,13 +32,37 @@ try {
 }
 }
 exports.getBurger = async (req, res) => {
-    verificarErrores(req, res);
+    checkError(req, res);
     try {
         //console.log(req.params)
         let burger = await BurgerModel.findOne(req.params);
         res.status(200).json({ burger })
         //console.log(hamburgesa)
     } catch (error) {
+        res.status(500).json({ msg: 'Hubo un problema al traer la hamburgesa'})
+        console.log(error.response)
+    }
+}
+exports.getBurgersByIngredient = async (req, res) => {
+    checkError(req, res);
+    try {
+        //console.log(req.params.topping)
+        //let burgers = await BurgerModel.find(req.params)
+        let burgers = await BurgerModel.find()
+       
+        let burgerArray = burgers.map(
+            burger => {
+                console.log(burger.toppings.filter(topping => (req.params.topping === topping)))
+                return burger;
+            }
+            );
+        //let burgerArray = burgers.filter(e => e.toppings.map() === req.params.topping)
+        console.log(burgerArray);   
+        // let burger = await BurgerModel.findOne(req.params);
+        // res.status(200).json({ burger })
+        //console.log(hamburgesa)
+    } catch (error) {
+
         res.status(500).json({ msg: 'Hubo un problema al traer la hamburgesa'})
         console.log(error.response)
     }
