@@ -8,25 +8,26 @@ https://secret-castle-04661.herokuapp.com
 | ------------- | ------------- |
 | `/burgers`  | all burgers  |
 | `/:name`  | specific burger |
+| `/:ingredient`  | burgers by ingredient |
 
 example:
-`/Whopper`
+`/Bacon Double Cheeseburger`
 
 ```
-"toppings": [
-     "pan",
-    "lechuga",
-    "tomate",
-    [
-    "carne 4.4"
-    ],
-    "cebolla",
-    "pepino",
-    "ketchup",
-    "mayonesa"
-    ],
-"_id": "6075da278efbe11c102c85ee",
-"name": "Whopper",
-"image": "https://cdn.sanity.io/images/czqk28jt/prod_bk_us/84743a96a55cb36ef603c512d5b97c9141c40a33-1333x1333.png?w=750&q=40&fit=max&auto=format",
-"__v": 0
+"burger": {
+   "ingredients": [
+       "bacon",
+       "American cheese",
+       "pickles",
+       "yellow mustard",
+       "ketchup"
+   ],
+   "_id": "609b66ca3a294b2ef48555f2",
+   "name": "Bacon Double Cheeseburger",
+   "image": "https://cdn.sanity.io/images/czqk28jt/prod_bk_us/3dc8729db35e4905f577ba9af065662299415970-1333x1333.png?w=320&q=40&fit=max&auto=format",
+   "calories": 404,
+   "size": "medium",
+   "type": "beef",
+   "__v": 0
+    }
 ```
