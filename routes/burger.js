@@ -2,8 +2,6 @@ const express = require("express");
 const router = express.Router();
 const { check } = require("express-validator");
 const burgerController = require("../controllers/burgerController");
-//Endpoint
-// api/burger
 
 router.post(
   "/",
@@ -12,7 +10,6 @@ router.post(
 );
 router.get("/", burgerController.getBurgers);
 router.get("/:name", burgerController.getBurger);
-//esto tiene que ir en otra ruta
-router.get("/ingredient/:topping", burgerController.getBurgersByIngredient);
+router.get("/ingredient/:ingredient", burgerController.getBurgersByIngredient);
 
 module.exports = router;
