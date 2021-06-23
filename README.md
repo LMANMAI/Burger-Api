@@ -6,27 +6,28 @@ https://secret-castle-04661.herokuapp.com
 
 | methood| route |
 | ------------- | ------------- |
-| `/burgers`  | all burgers  |
-| `/:name`  | specific burger |
+| `/`  | all burgers  |
+| `/:burgerID`  | specific burger |
 
 example:
-`/Whopper`
+`/609b5f2c3a294b2ef48555ea`
 
 ```
-"toppings": [
-     "pan",
-    "lechuga",
-    "tomate",
-    [
-    "carne 4.4"
+{
+    "ingredients": [
+        "tomatoes",
+        "lettuce",
+        "mayonnaise",
+        "ketchup",
+        "pickles",
+        "onions"
     ],
-    "cebolla",
-    "pepino",
-    "ketchup",
-    "mayonesa"
-    ],
-"_id": "6075da278efbe11c102c85ee",
-"name": "Whopper",
-"image": "https://cdn.sanity.io/images/czqk28jt/prod_bk_us/84743a96a55cb36ef603c512d5b97c9141c40a33-1333x1333.png?w=750&q=40&fit=max&auto=format",
-"__v": 0
+    "_id": "609b5f2c3a294b2ef48555ea",
+    "name": "Whopper",
+    "image": "https://cdn.sanity.io/images/czqk28jt/prod_bk_us/84743a96a55cb36ef603c512d5b97c9141c40a33-1333x1333.png?w=320&q=40&fit=max&auto=format",
+    "calories": 687,
+    "size": "big",
+    "type": "beef",
+    "__v": 0
+}
 ```

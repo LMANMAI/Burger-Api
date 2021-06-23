@@ -1,7 +1,7 @@
 {
   "name": "burgerapi",
   "version": "1.0.0",
-  "description": "api con las hamburgesas de burger king con los ingredientes",
+  "description": "Apirest with burgers and burger king burger images",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

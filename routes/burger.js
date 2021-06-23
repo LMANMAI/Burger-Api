@@ -6,10 +6,9 @@ const burgerController = require("../controllers/burgerController");
 router.post(
   "/",
   [check("name", "El Nombre es necesario").not().isEmpty()],
-  burgerController.insertBurger
+  burgerController.create
 );
-router.get("/", burgerController.getBurgers);
-router.get("/:name", burgerController.getBurger);
-router.get("/ingredient/:ingredient", burgerController.getBurgersByIngredient);
+router.get("/", burgerController.getAll);
+router.get("/:burgerID", burgerController.getByID);
 
 module.exports = router;
