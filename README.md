@@ -1,10 +1,9 @@
-# Burger King-Burgers-Api
+# Burgers-Api
+![image](https://user-images.githubusercontent.com/64815326/118039762-14538580-b347-11eb-9b64-d3d9716188d8.png)
 
-![image](https://user-images.githubusercontent.com/64815326/114615713-62a83280-9c7c-11eb-9718-71b596df039d.png)
+#### url: https://secret-castle-04661.herokuapp.com
 
-https://secret-castle-04661.herokuapp.com
-
-| methood| route |
+| End Point| action |
 | ------------- | ------------- |
 | `/`  | all burgers  |
 | `/:burgerID`  | specific burger |
