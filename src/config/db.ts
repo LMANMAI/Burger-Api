@@ -7,7 +7,10 @@ export const DataBaseConnection = async () => {
       throw new Error("DB environment variable is not defined.");
     }
 
-    await mongoose.connect(process.env.DB_URL);
+    await mongoose.connect(process.env.DB_URL, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
     console.log("Connected database");
   } catch (error) {
     console.error("Error connecting to database:", error);

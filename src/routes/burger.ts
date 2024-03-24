@@ -1,6 +1,7 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
 const { check } = require("express-validator");
+const authenticateApiKey = require("../middleware/authenticateApiKey");
 const burgerController = require("../controllers/burgerController");
 
 router.post(
@@ -8,7 +9,7 @@ router.post(
   [check("name", "El Nombre es necesario").not().isEmpty()],
   burgerController.create
 );
-router.get("/", burgerController.getAll);
+router.get("/", authenticateApiKey, burgerController.getAll);
 router.get("/:burgerID", burgerController.getByID);
 
-module.exports = router;
+export default router;

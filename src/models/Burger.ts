@@ -1,12 +1,24 @@
-const mongoose = require("mongoose");
+import mongoose, { Schema, Document } from "mongoose";
 
-const BurgerSchema = mongoose.Schema({
+interface IBurger extends Document {
+  name: string;
+  ingredients: string[];
+  image: string;
+  calories: number;
+  size: string;
+  type: string;
+}
+
+const BurgerSchema: Schema = new Schema({
   name: {
     type: String,
     required: true,
     trim: true,
   },
-  ingredients: [],
+  ingredients: {
+    type: [String],
+    default: [],
+  },
   image: {
     type: String,
     required: true,
@@ -14,18 +26,20 @@ const BurgerSchema = mongoose.Schema({
   },
   calories: {
     type: Number,
-    trim: true,
     required: true,
   },
   size: {
     type: String,
-    trim: true,
     required: true,
+    trim: true,
   },
   type: {
     type: String,
-    trim: true,
     required: true,
+    trim: true,
   },
 });
-module.exports = mongoose.model("Burger", BurgerSchema);
+
+const BurgerModel = mongoose.model<IBurger>("Burger", BurgerSchema);
+
+export default BurgerModel;
