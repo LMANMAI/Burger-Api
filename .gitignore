@@ -4,3 +4,4 @@ variables.env
 .env.test
 .env*.local
 *.env
+package-lock.json
