@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "rootDir": "./src",
+      "outDir": "./dist",
+      "target": "ES6",
+      "module": "CommonJS",
+      "strict": true,
+      "esModuleInterop": true,
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true
+      // Otras opciones de configuración
+    },
+    "include": ["src/**/*.ts"],
+    "exclude": ["node_modules"]
+  }
