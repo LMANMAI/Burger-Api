@@ -1,15 +1,15 @@
 # Burgers-Api
 ![image](https://user-images.githubusercontent.com/64815326/118039762-14538580-b347-11eb-9b64-d3d9716188d8.png)
 
-#### url: https://secret-castle-04661.herokuapp.com
+#### api-key validation
 
 | End Point| action |
 | ------------- | ------------- |
 | `/`  | all burgers  |
 | `/:burgerID`  | specific burger |
+| `/ingredient/:ingredient`  | specific burger with that ingredient |
 
 example:
-`/609b5f2c3a294b2ef48555ea`
 
 ```
 {
